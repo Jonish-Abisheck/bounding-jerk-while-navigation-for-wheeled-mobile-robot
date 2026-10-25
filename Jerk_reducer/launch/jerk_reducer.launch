@@ -1,0 +1,22 @@
+<launch>
+  <node pkg="jerk_reducer" type="jerk_reducer" name="jerk_reducer" output="screen">
+
+    <param name="filter_frequency" value="20.0"/>
+    <param name="feedback" value="CLOSED_LOOP"/>
+    <param name="scale_velocities" value="false"/>
+    <param name="velocity_timeout" value="1.0"/>
+    <param name="odom_topic" value="/odometry/filtered"/>
+
+    <rosparam param="max_velocity">[1.0, 0.05, 4.0]</rosparam>
+    <rosparam param="min_velocity">[-1.0, -0.05, -4.0]</rosparam>
+    <rosparam param="max_accel">[2.5, 0.2, 3.2]</rosparam>
+    <rosparam param="max_decel">[-2.5, -0.2, -3.2]</rosparam>
+    <rosparam param="max_jerk">[20.0, 10.0, 20.0]</rosparam>
+    <rosparam param="deadband_velocity">[0.0, 0.0, 0.0]</rosparam>
+
+    <remap from="cmd_vel" to="/cmd_vel_raw"/>
+    <remap from="cmd_vel_filtered" to="/cmd_vel"/>
+  </node>
+
+
+</launch>
