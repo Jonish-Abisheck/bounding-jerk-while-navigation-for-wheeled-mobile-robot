@@ -1,0 +1,8 @@
+jerk_reducer:
+  smoothing_frequency: 20.0
+  max_jerk_linear:     5.0
+  max_jerk_angular:    10.0
+  velocity_timeout:    1.0
+  odom_topic:          /odometry/filtered
+  cmd_vel_in_topic:    /cmd_vel_raw
+  cmd_vel_out_topic:   /cmd_vel
